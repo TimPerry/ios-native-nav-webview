@@ -7,9 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <WKNavigationDelegate, UINavigationBarDelegate, WKScriptMessageHandler> {
+    WKWebView *appWebView;
+    UIToolbar *appToolbar;
+    UINavigationBar *appNavBar;
+    WKScriptMessage *mostRecentScriptMessage;
+}
 
-
+-(void) gotoURL:(NSString *) url;
+-(void) gotoStartPage;
+-(void) setupNavigationBar;
+-(void) setupWebView;
 @end
 
